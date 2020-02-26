@@ -1,0 +1,18 @@
+header {
+  background-color: orange;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+header a {
+  color: white;
+}
+
+header h1 {
+  display: inline-block;
+  font-weight: bolder;
+  border: 3px solid white;
+  border-radius: 4px;
+  padding: 5px;
+}

@@ -1,0 +1,15 @@
+footer {
+  background-color: orange;
+  text-align: center;
+  color: white;
+  padding: 10px 0;
+}
+
+footer a {
+  color: black;
+
+}
+
+footer #author {
+  font-size: 18px;
+}

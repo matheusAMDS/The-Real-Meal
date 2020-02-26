@@ -1,0 +1,60 @@
+.recipe {
+  width: 80%;
+  margin: 50px auto;
+}
+
+.recipe h2 {
+  text-align: center;
+}
+
+.recipe .recipe-name {
+  font-size: 35px;
+}
+
+.recipe hr {
+  border-top: 2px solid orange;
+  margin: 30px auto;
+}
+
+.recipe .ingredients-box {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.recipe .ingredients-box .recipe-photo {
+  display: block;
+  max-width: 100%;
+  max-height: 400px;
+  margin: 30px 0;
+}
+
+.recipe .ingredients-box .ingredients {
+  display: flex;
+  flex-flow: column wrap;
+  margin: 10px 0;
+  width: 400px;
+  height: 320px;
+  background-color: rgb(248, 212, 144);
+  padding: 25px;
+  border: 1px solid orange;
+  border-radius: 4px;
+  font-size: large;
+}
+
+.recipe .instructions {
+  margin: 20px auto;
+  font-size: 20px;
+  max-width: 80%;
+}
+
+.recipe .recipe-youtube {
+  text-align: center;
+  font-size: 19px;
+  text-decoration: underline;
+}
+
+.recipe .recipe-youtube a {
+  color: rgb(46, 116, 139);
+}

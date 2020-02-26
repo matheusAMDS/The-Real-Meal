@@ -1,0 +1,67 @@
+import React, { useState, useEffect } from 'react'
+import { useParams } from "react-router-dom"
+
+import api from "../../services/api"
+import "./styles.css"
+
+function genIngredientIndex() {
+  let arr = []
+
+  for (let c = 1; c <= 20; c++) {
+    arr.push(c)
+  }
+
+  return arr
+}
+
+export default function Recipe() {
+  const { id } = useParams()
+  const [ recipe, setRecipe ] = useState([])
+
+  useEffect(() => {
+    async function loadRecipe() {
+      const resp = await api.get(`/lookup.php?i=${id}`)
+      setRecipe(resp.data.meals)
+    }
+
+    loadRecipe()
+  }, [])
+
+  return (
+    <main>
+      {recipe.map(rec => (
+        <div className="recipe" key={rec.strMeal}>
+          <h2 className="recipe-name">{rec.strMeal}</h2>
+          <hr/>
+          <h2 className="ingredients-title">Ingredients</h2>
+          <div className="ingredients-box">
+            <img className="recipe-photo" src={rec.strMealThumb} alt=""/>
+            <ul className="ingredients">
+              {genIngredientIndex()
+                .filter(i => rec[`strIngredient${i}`] !== "" && rec[`strIngredient${i}`] !== null)
+                .map(i => (
+                  <li key={i}>{rec[`strIngredient${i}`]}</li>
+              ))}
+            </ul>
+          </div>
+          <h2 className="instructions-title">Instructions</h2>
+          <ol className="instructions">
+            {rec.strInstructions.split(".").slice(0, -1).map(instruction => (
+              <li key={instruction}>{instruction};</li>
+            ))}
+          </ol>
+          <hr/>
+          <p className="recipe-youtube">
+            <a 
+              href={rec.strYoutube} 
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              You can also see this recipe on this video
+            </a>
+          </p>
+        </div>
+      ))}
+    </main>
+  );
+}
