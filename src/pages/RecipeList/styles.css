@@ -48,10 +48,3 @@ hr {
   padding: 5px;
   text-align: center;
 }
-
-@media (max-width: 450px) {
-  #recipes {
-    justify-content: stretch;
-    width: 300px;
-  }
-}
